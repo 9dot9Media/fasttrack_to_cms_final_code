@@ -1,0 +1,11 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  Image: {{ image.name }}
+{% endblock %}
+{% block content %}
+  <figure>
+    <img src="{{ image.image.url }}"
+         alt="{{ image.alt_text }}"/>
+    <figcaption>{{ image.alt_text }}</figcaption>
+  </figure>
+{% endblock %}

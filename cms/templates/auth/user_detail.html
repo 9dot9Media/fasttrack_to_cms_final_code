@@ -1,0 +1,20 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  Author: {{ user.get_full_name }}
+{% endblock %}
+{% block content %}
+  <header>
+    <h1>Articles by {{ user.get_full_name }}</h1>
+  </header>
+  <section>
+  <ul>
+  {% for article in user.article_set.all %}
+    <li>
+      <a href="{% url 'articles-detail' article.slug %}">
+        {{ article.title }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+  </section>
+{% endblock %}

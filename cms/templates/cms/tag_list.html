@@ -1,0 +1,16 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  Tag Cloud
+{% endblock %}
+{% block content %}
+  <ul>
+  {% for tag in object_list %}
+    <li style="font-size: {{ tag.num_articles }}pt;
+               display: inline-block;">
+      <a href="{% url 'tags-detail' tag.slug %}">
+        {{ tag.name }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

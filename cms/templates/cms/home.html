@@ -1,0 +1,49 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  Welcome to MyCMS
+{% endblock %}
+{% block content %}
+  <section>
+  <h1>Top two categories</h1>
+  <ul>
+  {% for category in categories %}
+    <li>
+      <a href="{% url 'categories-detail' category.slug %}">
+        {{ category.name }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+  </section>
+  <section>
+  <h1>Our latest articles</h1>
+  {% for article in articles %}
+    <article>
+    <header>
+    <h2>
+      <a href="{% url 'articles-detail' article.slug %}">
+        {{ article.title }}
+      </a>
+    </h2>
+
+    <p>
+    By:
+    <a href="{% url 'authors-detail' article.author.username %}">
+      {{ article.author }}
+    </a>
+    </p>
+    </header>
+    {% if forloop.counter <= 2 %}
+      <section>
+        {{ article.content_html|safe|truncatewords_html:50 }}
+      </section>
+      <footer>
+        <a href="{% url 'articles-detail' article.slug %}">
+          Read more
+        </a>
+      </footer>
+    {% endif %}
+    </article>
+  {% endfor %}
+  </section>
+{% endblock %}

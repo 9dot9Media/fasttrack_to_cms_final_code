@@ -1,0 +1,15 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  Authors
+{% endblock %}
+{% block content %}
+  <ul>
+  {% for author in object_list %}
+    <li>
+      <a href="{% url 'authors-detail' author.username %}">
+        {{ author.get_full_name }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

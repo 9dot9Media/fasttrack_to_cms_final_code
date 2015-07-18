@@ -1,0 +1,27 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  {{ gallery.name }}
+{% endblock %}
+{% block content %}
+  <header>
+    <h1>Browsing the '{{ gallery.name }}'
+      gallery</h1>
+  </header>
+  <section>
+    <p>{{ gallery.description }}</p>
+  </section>
+  <section>
+  {% block gallery %}
+    <ul class="small-block-grid-3">
+    {% for image in gallery.images.all %}
+      <li>
+      <a href="{% url 'image-detail' image.slug %}">
+        <img src="{{ image.image.url }}"
+             alt="{{ image.name }}"/>
+      </a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endblock %}
+  </section>
+{% endblock %}

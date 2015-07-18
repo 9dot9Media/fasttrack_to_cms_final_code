@@ -1,0 +1,42 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  {{ article.title }}
+{% endblock %}
+{% block content %}
+  <article>
+  <header>
+  <p>
+    <a href="{% url 'categories-detail' article.category.slug %}">
+      {{ article.category }}
+    </a>
+  </p>
+
+  <h1>{{ article.title }}</h1>
+
+  <p>
+  By:
+  <a href="{% url 'authors-detail' article.author.username %}">
+    {{ article.author }}
+  </a>
+  </p>
+
+  <p>
+    Posted: {{ article.creation_date|date }}
+  </p>
+  <img src="{{ article.featured_image.url }}"
+       alt="{{ article.title }}"/>
+  </header>
+  <section>
+    {{ article.content_html|safe }}
+  </section>
+  <footer>
+  <p>Tags:
+    {% include '_tags.html' with tags=article.tags.all %}
+  </p>
+
+  <p>
+    Last update: {{ article.edit_date|date }}
+  </p>
+  </footer>
+  </article>
+{% endblock %}

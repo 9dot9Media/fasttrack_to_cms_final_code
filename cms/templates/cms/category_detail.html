@@ -1,0 +1,27 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  Browsing: {{ category.name }}
+{% endblock %}
+{% block content %}
+  <header>
+    <h1>Browsing the '{{ category.name }}'
+      category</h1>
+  </header>
+  <section>
+  <img src="{{ category.image.url }}"
+       alt="{{ category.name }}"/>
+
+  <p>{{ category.description }}</p>
+  </section>
+  <section>
+  <ul>
+  {% for article in category.article_set.all %}
+    <li>
+      <a href="{% url 'articles-detail' article.slug %}">
+        {{ article.title }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+  </section>
+{% endblock %}

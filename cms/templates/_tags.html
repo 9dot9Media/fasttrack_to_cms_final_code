@@ -1,0 +1,9 @@
+<ul class="inline-list">
+{% for tag in tags %}
+  <li>
+    <a href="{% url 'tags-detail' tag.slug %}">
+      {{ tag.name }}
+    </a>
+  </li>
+{% endfor %}
+</ul>

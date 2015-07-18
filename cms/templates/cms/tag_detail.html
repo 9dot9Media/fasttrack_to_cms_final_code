@@ -1,0 +1,21 @@
+{% extends 'site_base.html' %}
+{% block title %}
+  Browsing: {{ tag.name }}
+{% endblock %}
+{% block content %}
+  <header>
+    <h1>Browsing article with the '{{ tag.name }}'
+      tag</h1>
+  </header>
+  <section>
+  <ul>
+  {% for article in tag.article_set.all %}
+    <li>
+      <a href="{% url 'articles-detail' article.slug %}">
+        {{ article.title }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+  </section>
+{% endblock %}

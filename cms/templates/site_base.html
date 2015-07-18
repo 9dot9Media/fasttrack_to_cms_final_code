@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{% block title %}My
+  CMS{% endblock %}</title>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.min.css">
+</head>
+<body class="row">
+<aside id="sidebar" class="small-3 columns">
+{% block sidebar %}
+  <menu class="side-nav">
+  <li><a href="/">Home</a></li>
+  <li><a href="/articles/">All Articles</a></li>
+  <li><a href="/categories/">Browse
+    Categories</a></li>
+  <li><a href="/galleries/">Browse Galleries</a>
+  </li>
+  <li><a href="/authors/">Browse Authors</a>
+  </li>
+  <li><a href="/tags/">Browse by Tags</a></li>
+  </menu>
+{% endblock %}
+</aside>
+<main role="main" class="small-9 columns">
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'cms/gallery_detail_base.html' %}
+{% block gallery %}
+  <ul class="no-bullet">
+  {% for image in gallery.images.all %}
+    <li>
+    <figure>
+    <img class="small-12 columns"
+         src="{{ image.image.url }}"
+         alt="{{ image.alt_text }}"/>
+    <figcaption class="small-12 columns">
+      {{ image.alt_text }}
+    </figcaption>
+    </figure>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
