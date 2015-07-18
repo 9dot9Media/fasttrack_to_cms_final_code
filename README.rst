@@ -48,7 +48,7 @@ at http://localhost:8000/:
 Using the generate_data Script
 ------------------------------
 
-The `generate_data.py`_ script included with this code just had one additional requirement, and that
+The `generate_data.py <./generate_data.py>`_ script included with this code just had one additional requirement, and that
 is `fake-factory`. The `fake-factory` Python package is incredibly useful when generating random
 test data that feels similar in overall appearance and structure to the content it is emulating.
 
